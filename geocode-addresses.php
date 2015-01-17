@@ -10,9 +10,8 @@
   require 'vendor/autoload.php';
   use GuzzleHttp\Client;
   
-  // Change the fopen value to the name of your CSV with addresses in the first column.
-  // Note that you should NOT include a column header.
-  $file = fopen("to-geocode.csv", "r");
+  // Open, read the CSV file and put into the addresses array.
+  $file = fopen($argv[1], "r");
   while (($line = fgetcsv($file)) !== FALSE) {
     $addresses[] = $line[0];
   }
